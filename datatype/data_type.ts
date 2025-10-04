@@ -44,9 +44,8 @@ console.log("1. Primitive Data Types:");
 // h. Any
 // i. Void
 // j. Never
-// k. undefined
-// l. Union Type
-// m. Unknown
+// k. Union Type
+// l. Unknown
 
 // 2. Non-Primitive Data Types
 console.log("2. Non-Primitive Data Types:");
