@@ -7,7 +7,7 @@ console.log("Age: " + age);
 console.log("Is Student: " + isStudent);
 console.log("Grades: " + grades.join(", "));
 
-// Var keyword (fucntion scope)
+// Var keyword (function scope)
 
 function varTest() {
     console.log("Var Test:");
@@ -27,7 +27,7 @@ function letTest() {
     console.log("Let Test:");
     if(true) {
         let a = 10;
-        console.log(a); // 1
+        console.log(a); // 10
         let b = 20;
     }
     // console.log(b); // Error: b is not defined
@@ -63,14 +63,14 @@ scopeDiff();
 // Declaration without initialization
 function declarationWithoutInitialization() {
     console.log("Declaration without initialization:");
+    var uninitializedVar: string;
     let uninitializedLet: number;
     const initializedConst: number = 10; // Must be initialized
-    var uninitializedVar: string;
-    uninitializedLet = 5;
     uninitializedVar = "Hello";
+    uninitializedLet = 5;
+    console.log(uninitializedVar); // Hello
     console.log(uninitializedLet); // 5
     console.log(initializedConst); // 10
-    console.log(uninitializedVar); // Hello
 }
 declarationWithoutInitialization();
 
@@ -91,7 +91,7 @@ function redeclarationTest() {
 }
 redeclarationTest();
 
-// Reinitialization * Reassignment
+// Reinitialization & Reassignment
 function reassignmentTest() {
     console.log("Reassignment:");
     var reinitVar = "Initial value";
