@@ -1,1 +1,1 @@
- console.log("Welcomde to TypeScript!")
+ console.log("Welcome to TypeScript!")
