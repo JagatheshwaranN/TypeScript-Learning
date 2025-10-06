@@ -251,7 +251,7 @@ console.log("Combined Object:", combinedObj);
 function sumThreeNumbers(x: number, y: number, z: number): number {
     return x + y + z;
 }  
-let numbers: number[] = [1, 2, 3];
+let numbers: [number, number, number] = [1, 2, 3];
 let total: number = sumThreeNumbers(...numbers); // Equivalent to sumThreeNumbers(1, 2, 3)
 console.log(`Total Sum: ${total}`); // Output: 6
 // Note: The spread operator is a powerful feature that enhances code readability and conciseness
