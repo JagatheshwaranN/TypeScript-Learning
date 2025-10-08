@@ -114,5 +114,37 @@ function combine(a: any, b: any): any {
 console.log(combine("Hello, ", "World!")); // Output: Hello, World!
 console.log(combine(10, 20)); // Output: 30
 // console.log(combine("Hello", 10)); // Error: Invalid arguments
-// Note: The implementation signature (the last one) is not visible to callers of the function.
-// Only the overload signatures (the first two) are visible.
+
+// Why Callback Functions?
+// Callback functions are used to handle asynchronous operations, such as fetching data
+// from a server, reading files, or handling events. They allow you to define what should
+// happen once the asynchronous operation is complete, without blocking the main thread of
+// execution.
+
+// Function with Callback
+console.log("Function with Callback");  
+
+// A callback function is a function passed into another function as an argument, which is
+// then invoked inside the outer function to complete some kind of routine or action.
+function greetUser(name: string, callback: (greeting: string) => void): void {
+    const greetingMessage = `Hello, ${name}!`;
+    callback(greetingMessage); // Invoke the callback with the greeting message
+}
+greetUser("Bob", logGreeting);  // Output: Hello, Bob!
+
+// Callback function definition
+function logGreeting(message: string): void {
+    console.log(message);
+}
+
+// Example of an asynchronous operation using a callback
+function fetchData(callback: (data: string) => void): void {
+    // Simulate an asynchronous operation using setTimeout
+    setTimeout(() => {
+        const data = "Sample Data";
+        callback(data); // Invoke the callback with the fetched data
+    }, 1000);
+}       
+fetchData((data) => {
+    console.log("Data received:", data); // Output: Data received: Sample Data
+});
