@@ -132,3 +132,91 @@ function transformArray(arr:string[]):string[] {
 console.log("Transforming strings array to uppercase:", transformArray(strings));
 
 // 3. Array Methods
+console.log("Using Array Methods:");
+let sampleArray: number[] = [1, 2, 3, 4, 5];
+
+// Push - Adds one or more elements to the end of an array and returns the new length of the array.
+console.log("Pushing elements to array:");
+sampleArray.push(6, 7);
+console.log("Array after push:", sampleArray);
+
+// Pop - Removes the last element from an array and returns that element.
+console.log("Popping element from array:");
+sampleArray.pop();
+console.log("Array after pop:", sampleArray);
+
+// Shift - Removes the first element from an array and returns that removed element.
+console.log("Shifting element from array:");
+sampleArray.shift();
+console.log("Array after shift:", sampleArray);
+
+// Unshift - Adds one or more elements to the beginning of an array and returns the new length of the array.
+console.log("Unshifting elements to array:");
+sampleArray.unshift(0);
+console.log("Array after unshift:", sampleArray);
+
+// Sort - Sorts the elements of an array in place and returns the sorted array.
+// Note: The default sort order is according to string Unicode code points.
+console.log("Sorting an array:");
+let anotherArray:number[] = [14, 15, 17, 16];
+console.log("Original Array:", anotherArray);
+console.log("Sorted Array:", anotherArray.sort((a, b) => a - b));
+
+// Reverse - Reverses the elements of an array in place. The first array element becomes the last, and the last array element becomes the first.
+console.log("Original Array:", anotherArray);
+console.log("Reversed Array:", anotherArray.reverse());
+
+// Concat - Merges two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+console.log("Concatenating arrays:");
+let array1: number[] = [1, 2, 3];   
+let array2: number[] = [4, 5, 6];
+let concatenatedArray: number[] = array1.concat(array2);
+console.log("Array 1:", array1);
+console.log("Array 2:", array2);
+console.log("Concatenated Array:", concatenatedArray);
+
+// Slice - Returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included).
+// Note: The start index is inclusive, and the end index is exclusive.
+console.log("Slicing an array:");
+console.log("Original Array:", sampleArray);
+console.log("Sliced Array (1,4):", sampleArray.slice(1, 4));
+
+// Splice - Changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
+// Syntax: array.splice(start, deleteCount, item1, item2, ...)
+console.log("Splicing an array:");
+console.log("Original Array:", sampleArray);
+console.log("Spliced Array (1,2):", sampleArray.splice(1, 2, 8, 9));    
+console.log("Array after splice:", sampleArray);
+
+
+console.log("Popped Element:", sampleArray.pop());
+console.log("Array after pop:", sampleArray);
+sampleArray.push(10);   
+console.log("Array after push:", sampleArray);
+console.log("Shifted Element:", sampleArray.shift());
+console.log("Array after shift:", sampleArray);
+sampleArray.unshift(20);
+console.log("Array after unshift:", sampleArray);
+console.log("Sliced Array (1,3):", sampleArray.slice(1, 3));
+console.log("Spliced Array (1,2):", sampleArray.splice(1, 2));
+console.log("Array after splice:", sampleArray);
+console.log("Index of 8 in array:", sampleArray.indexOf(8));
+console.log("Includes 3 in array:", sampleArray.includes(3));
+console.log("Includes 100 in array:", sampleArray.includes(100));
+console.log("Concatenated Array:", sampleArray.concat([30, 40, 50]));
+console.log("Joined Array:", sampleArray.join(", "));
+console.log("Array to String:", sampleArray.toString());
+
+// IndexOf - Returns the first index at which a given element can be found in the array, or -1 if it is not present.
+console.log("IndexOf examples:");
+console.log("Index of 3 in array:", sampleArray.indexOf(5));
+console.log("Index of 100 in array:", sampleArray.indexOf(100));
+
+// Includes - Determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+console.log("Includes examples:");
+console.log("Includes 3 in array:", sampleArray.includes(5));
+console.log("Includes 100 in array:", sampleArray.includes(100));
+
+// ToString - Returns a string representing the array and its elements.
+console.log("ToString example:");
+console.log("Array to String:", sampleArray.toString());
