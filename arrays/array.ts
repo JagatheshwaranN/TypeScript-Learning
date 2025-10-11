@@ -182,30 +182,11 @@ console.log("Original Array:", sampleArray);
 console.log("Sliced Array (1,4):", sampleArray.slice(1, 4));
 
 // Splice - Changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
-// Syntax: array.splice(start, deleteCount, item1, item2, ...)
+// Syntax: array.splice(startIndex, deleteCount, item1, item2, ...)
 console.log("Splicing an array:");
 console.log("Original Array:", sampleArray);
 console.log("Spliced Array (1,2):", sampleArray.splice(1, 2, 8, 9));    
 console.log("Array after splice:", sampleArray);
-
-
-console.log("Popped Element:", sampleArray.pop());
-console.log("Array after pop:", sampleArray);
-sampleArray.push(10);   
-console.log("Array after push:", sampleArray);
-console.log("Shifted Element:", sampleArray.shift());
-console.log("Array after shift:", sampleArray);
-sampleArray.unshift(20);
-console.log("Array after unshift:", sampleArray);
-console.log("Sliced Array (1,3):", sampleArray.slice(1, 3));
-console.log("Spliced Array (1,2):", sampleArray.splice(1, 2));
-console.log("Array after splice:", sampleArray);
-console.log("Index of 8 in array:", sampleArray.indexOf(8));
-console.log("Includes 3 in array:", sampleArray.includes(3));
-console.log("Includes 100 in array:", sampleArray.includes(100));
-console.log("Concatenated Array:", sampleArray.concat([30, 40, 50]));
-console.log("Joined Array:", sampleArray.join(", "));
-console.log("Array to String:", sampleArray.toString());
 
 // IndexOf - Returns the first index at which a given element can be found in the array, or -1 if it is not present.
 console.log("IndexOf examples:");
@@ -220,3 +201,198 @@ console.log("Includes 100 in array:", sampleArray.includes(100));
 // ToString - Returns a string representing the array and its elements.
 console.log("ToString example:");
 console.log("Array to String:", sampleArray.toString());
+
+// Join - Joins all elements of an array into a string and returns this string. You can specify a separator.
+console.log("Join example:");
+console.log("Array joined with '-':", sampleArray.join('-'));
+console.log("Array joined with ' ':", sampleArray.join(' ')); 
+console.log("Array joined with ',':", sampleArray.join(','));
+
+// ForEach - Executes a provided function once for each array element.
+console.log("ForEach example:");
+// Syntax: array.forEach((element, index, array) => { ... });
+let fruits: string[] = ["Apple", "Banana", "Cherry"];
+
+// Using traditional function
+fruits.forEach(function(fruit, index) {
+    console.log(`Fruit at index ${index}:`, fruit);
+});
+
+// Using arrow function
+fruits.forEach((fruit, index) =>{
+    console.log(`Fruit at index ${index}:`, fruit);
+});
+
+// Using for...of loop
+fruits.forEach(fruit => {
+    console.log("Fruit:", fruit.toUpperCase());
+});
+
+// Map - Creates a new array populated with the results of calling a provided function on every element 
+// in the calling array.
+console.log("Map example:");
+// Syntax: array.map((element, index, array) => { ... });
+let moreNumbers: number[] = [1, 2, 3, 4, 5];
+let squaredNumbers: number[] = moreNumbers.map(num => num * num);
+console.log("Original Numbers:", moreNumbers);
+console.log("Squared Numbers:", squaredNumbers);
+
+// Using traditional function
+let incrementedNumbers: number[] = moreNumbers.map(function(num) {
+    return num + 1;
+}); 
+console.log("Incremented Numbers:", incrementedNumbers);
+
+// Using arrow function
+let doubledNumbers: number[] = moreNumbers.map(num => num * 2);
+console.log("Doubled Numbers:", doubledNumbers);
+
+// Using for...of loop
+let tripledNumbers: number[] = [];
+for (let num of moreNumbers) {
+    tripledNumbers.push(num * 3);
+}
+console.log("Tripled Numbers:", tripledNumbers);
+
+// Filter - Creates a new array with all elements that pass the test implemented by the provided function.
+console.log("Filter example:"); 
+// Syntax: array.filter((element, index, array) => { ... });
+let evenNumbers: number[] = moreNumbers.filter(num => num % 2 === 0);
+console.log("Original Numbers:", moreNumbers);
+console.log("Even Numbers:", evenNumbers);
+
+// Using traditional function
+let oddNumbers: number[] = moreNumbers.filter(function(num) {
+    return num % 2 !== 0;
+});
+console.log("Odd Numbers:", oddNumbers);
+
+// Using arrow function
+let greaterThanTwo: number[] = moreNumbers.filter(num => num > 2);
+console.log("Numbers greater than 2:", greaterThanTwo);
+
+// Using for...of loop
+let lessThanFour: number[] = [];
+for (let num of moreNumbers) {
+    if (num < 4) {
+        lessThanFour.push(num);
+    }
+}
+console.log("Numbers less than 4:", lessThanFour);
+
+// Reduce - Executes a reducer function (that you provide) on each element of the array, resulting in a 
+// single output value.
+console.log("Reduce example:");
+// Syntax: array.reduce((accumulator, currentValue, index, array) => { ... }, initialValue);
+
+// accumulator - accumulates the callback's return values; it is the accumulated value previously
+// returned in the last invocation of the callback, or initialValue, if supplied.
+// currentValue - the current element being processed in the array.
+// initialValue - a value to use as the first argument to the first call of the callback. If no initialValue
+// is supplied, the first element in the array will be used and skipped as currentValue.
+let sum: number = moreNumbers.reduce((acc, curr) => acc + curr, 0);
+console.log("Sum of Numbers:", sum);    
+
+// Using traditional function
+let product: number = moreNumbers.reduce(function(acc, curr) {
+    return acc * curr;
+}, 1);
+console.log("Product of Numbers:", product);
+
+// Using arrow function
+let max: number = moreNumbers.reduce((acc, curr) => (curr > acc ? curr : acc), moreNumbers[0]);
+console.log("Maximum Number:", max);
+
+// Using for...of loop
+let min: number = moreNumbers[0];
+for (let num of moreNumbers) {
+    if (num < min) {
+        min = num;
+    }   
+}
+console.log("Minimum Number:", min);
+
+// Some - Tests whether at least one element in the array passes the test implemented by the provided function.
+console.log("Some example:");
+// Syntax: array.some((element, index, array) => { ... });
+let hasEvenNumber: boolean = moreNumbers.some(num => num % 2 === 0);
+console.log("Array has even number:", hasEvenNumber);
+let hasGreaterThanFive: boolean = moreNumbers.some(num => num > 5);
+console.log("Array has number greater than 5:", hasGreaterThanFive);
+
+// Using traditional function
+let hasNegativeNumber: boolean = moreNumbers.some(function(num) {
+    return num < 0;
+});
+console.log("Array has negative number:", hasNegativeNumber);
+
+// Using arrow function
+let hasThreeDigitNumber: boolean = moreNumbers.some(num => num >= 100);
+console.log("Array has three-digit number:", hasThreeDigitNumber);
+
+// Using for...of loop
+let foundGreaterThanFour: boolean = false;
+for (let num of moreNumbers) {
+    if (num > 4) {
+        foundGreaterThanFour = true;
+        break;
+    }
+}
+console.log("Array has number greater than 4:", foundGreaterThanFour);
+
+// Every - Tests whether all elements in the array pass the test implemented by the provided function.
+console.log("Every example:");
+// Syntax: array.every((element, index, array) => { ... });
+let allPositive: boolean = moreNumbers.every(num => num > 0);
+console.log("All numbers are positive:", allPositive);
+let allLessThanFive: boolean = moreNumbers.every(num => num < 5);
+console.log("All numbers are less than 5:", allLessThanFive);
+
+// Using traditional function
+let allEven: boolean = moreNumbers.every(function(num) {
+    return num % 2 === 0;
+});
+console.log("All numbers are even:", allEven);
+
+// Using arrow function
+let allLessThanTen: boolean = moreNumbers.every(num => num < 10);
+console.log("All numbers are less than 10:", allLessThanTen);
+
+// Using for...of loop
+let allGreaterThanZero: boolean = true;
+for (let num of moreNumbers) {
+    if (num <= 0) {
+        allGreaterThanZero = false;
+        break;
+    }
+}
+console.log("All numbers are greater than 0:", allGreaterThanZero);
+
+// Find - Returns the value of the first element in the array that satisfies the provided testing function.
+// If no values satisfy the testing function, undefined is returned.
+console.log("Find example:");   
+// Syntax: array.find((element, index, array) => { ... });
+let firstEven: number | undefined = moreNumbers.find(num => num % 2 === 0);
+console.log("First even number:", firstEven);
+let firstGreaterThanThree: number | undefined = moreNumbers.find(num => num > 3);
+console.log("First number greater than 3:", firstGreaterThanThree);
+
+// Using traditional function
+let firstNegative: number | undefined = moreNumbers.find(function(num) {
+    return num < 0;
+});
+console.log("First negative number:", firstNegative);
+
+// Using arrow function
+let firstThreeDigit: number | undefined = moreNumbers.find(num => num >= 100);
+console.log("First three-digit number:", firstThreeDigit);
+
+// Using for...of loop
+let firstGreaterThanFour: number | undefined;
+for (let num of moreNumbers) {
+    if (num > 4) {
+        firstGreaterThanFour = num;
+        break;
+    }
+}
+console.log("First number greater than 4:", firstGreaterThanFour);
