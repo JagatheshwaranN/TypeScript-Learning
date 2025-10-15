@@ -13,8 +13,15 @@ let person: { name: string; age: number } = {
 };
 
 // Using dot notation to access properties
+console.log("Using dot notation:");
 console.log(person.name); // Output: Alice
 console.log(person.age); // Output: 30
+
+// Using bracket notation to access properties
+console.log("Using bracket notation:");
+console.log(person["name"]) // Output: Alice
+console.log(person["age"]) // Output: 30
+
 
 let rectangle = {
     width: 10,
@@ -27,6 +34,7 @@ let rectangle = {
 // Using dot notation to access properties and methods
 console.log(rectangle.width); // Output: 10
 console.log(rectangle.area()); // Output: 200
+console.log(rectangle["area"]()); // Output: 200
 
 
 // 2. Using a constructor function
@@ -44,7 +52,6 @@ let animal = {
     sound: function() {
         console.log("Woof!");
     }   
-
 };
 let myDog = Object.create(animal);
 myDog.sound(); // Output: Woof!
@@ -66,7 +73,6 @@ let john = new Person("John", 25);
 john.greet(); // Output: Hello, my name is John and I am 25 years old.
 console.log(john.name); // Output: John
 console.log(john.age); // Output: 25
-
 
 
 
