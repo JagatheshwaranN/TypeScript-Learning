@@ -57,7 +57,52 @@ let myDog = Object.create(animal);
 myDog.sound(); // Output: Woof!
 console.log(myDog.type); // Output: Dog
 
-// 4. Using a class
+// 4. Using type alias
+type product={
+    prodName:string,
+    prodPrice:number,
+    getInfo:()=>string
+}
+
+let book1:product = {
+    prodName:"Learn TS",
+    prodPrice: 78,
+    getInfo: function() {
+        return `${this.prodName} - ${this.prodPrice}`;
+    }
+}
+
+let book2:product = {
+    prodName:"Learn JS",
+    prodPrice: 98,
+    getInfo: function() {
+        return `${this.prodName} - ${this.prodPrice}`;
+    }
+}
+
+console.log(book1.getInfo());
+console.log(book2.getInfo());
+
+type contactType1={
+    email:string
+}
+
+type contactType2={
+    phone:number
+}
+
+type contact = contactType1 & contactType2 & {
+    fax: (string | number)
+}
+
+let contactPerson:contact = {
+    email:"test@email.com",
+    phone:3134567890,
+    fax:"qwerty@12345"
+}
+console.log(contactPerson);
+
+// 5. Using a class
 class Person {
     name: string;
     age: number;
@@ -73,6 +118,4 @@ let john = new Person("John", 25);
 john.greet(); // Output: Hello, my name is John and I am 25 years old.
 console.log(john.name); // Output: John
 console.log(john.age); // Output: 25
-
-
 
